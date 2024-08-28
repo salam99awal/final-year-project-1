@@ -1,0 +1,194 @@
+
+
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #b00;
+  color: white;
+}
+</style>
+
+
+ <div class="content-wrapper">
+  <div class="row">
+
+   <div class="col-lg-12 d-flex grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-wrap justify-content-between">
+                    
+                                   <% if (defined?(@sub_chosen)).nil? %>
+                     
+                          <h4 class="card-title mb-3">Lessons</h4>
+                          <% else  %>
+
+                            <strong class="card-title"><h4 class="card-title mb-3"><%=  @sub_chosen[0].name %> Lessons Notes For<span style="color: red"> <%=  @teacher_name[0].full_name %></span></h4></strong>
+                            <% end  %>
+                    </div>
+
+      <div class="table-responsive">
+                      <table class="table">
+                       <thead>
+                  <tr>
+                  <th>Lesson Date</th>
+                  <th>Week Day</th>
+      <th>Topic</th>
+      <th>Objectives</th>
+     
+      <th>Content/Subject Matter</th>
+
+      <th>Date Lesson Created</th>
+      <th>Actions</th>
+      <th colspan="3"></th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lessons.each do |lesson| %>
+      <tr>
+      <td><%= lesson.lesson_date.strftime("%B %d, %Y") if lesson.lesson_date  %></td>
+       <td><%= lesson.weekday %></td>
+        <td><%= lesson.title %></td>
+        <td><%= lesson.objectives %></td>
+        <td><%= lesson.procedures %></td>
+  
+        <td><%= lesson.created_at.strftime("%B %d, %Y") if lesson.created_at %></td>
+
+       
+
+
+        <!--  <%# if lesson.avafile.attached? %>
+                        <td class='"btn btn-warning"'>
+                          <%#= link_to "View Lesson Note", rails_blob_path(lesson.avafile, disposition: :preview),{ :class => "btn btn-primary"} %>
+
+                           <%#= image_tag lesson.avafile.preview(resize: "400x400") %>
+                        </td>
+                 <%# end%>    -->        
+     
+        <td>
+   
+         <% if lesson.status == true%>
+          <button class= "btn btn-secondary" disabled>Completed</button>
+      
+          <% end%>
+          </td>
+
+  
+           <% if current_user.role_id == 2 %>
+            <td>
+          
+            <%= link_to 'Upload Notes', uploadingNotes_path(:id=>lesson.id,:subject_id => @subject_id), {:remote => true, class:'btn btn-danger','data-toggle' =>  "modal",'data-target' => '#myModal10'} %> <br>  <br> <%= link_to 'View Notes', view_uploadingNotes_path(:id=>lesson.id,:subject_id => @subject_id), {:remote => true, class:'btn btn-success','data-toggle' =>  "modal",'data-target' => '#myModal11'} %>
+              </td>
+
+               <td>
+          
+            <%= link_to 'Teach this topic', teaching_path(:id=>lesson.id,:subject_id => @subject_id), { :class => "btn btn-dark"} %> <br>  <br> <%= link_to 'Lesson Details', lesson_details_path(:id=>lesson.id), {:remote => true, class:'btn btn-warning','data-toggle' =>  "modal",'data-target' => '#myModal1'}  %>
+              </td> 
+
+             <% end%>
+  
+    
+
+            <% if current_user.role_id == 1 %>
+                <td>
+            <%= link_to 'Lesson Details', lesson_details_path(:id=>lesson.id), {:remote => true, class:'btn btn-warning','data-toggle' =>  "modal",'data-target' => '#myModal1','data-backdrop'=> "static", 'data-keyboard'=>"false"}  %><br>  <br>
+            <%= link_to 'View Notes', view_uploadingNotes_path(:id=>lesson.id,:subject_id => @subject_id), {:remote => true, class:'btn btn-success','data-toggle' =>  "modal",'data-target' => '#myModal11','data-backdrop'=> "static", 'data-keyboard'=>"false"} %>
+              </td>
+        <td><%= link_to 'Edit', edit_lesson_path(lesson,:subject_id => @subject_id,:user_id => @user_id), { :class => "btn btn-info"} %> <br>  <br>
+        <%= link_to 'Delete', lesson, method: :delete, :class => "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
+ 
+            <% end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+ <% if current_user.role_id == 1 %>
+<%= link_to 'New Lesson', new_lesson_path(:subject_id => @subject_id, :user_id => @user_id), { :class => "btn btn-primary"} %>
+   <% end %>
+
+    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+ <div id="myModal1" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content" >
+              <div class="modal-header">
+                <h4 class="modal-title"> Lesson Details</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body" id = 'fil'>
+              
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+         </div>
+       </div> 
+
+       <div id="myModal10" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content" >
+              <div class="modal-header">
+                <h4 class="modal-title"> Upload Lesson Note</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+               <div class="modal-body" id = 'dis'>
+              <%= render "uploadingNotes" %>
+            </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+         </div>
+       </div>
+
+
+
+ 
+
+
+         <div id="myModal11" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content" >
+            <div class="modal-header">
+            <h2> View Lesson Note</h2>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <!-- <h4 class="modal-title">close</h4> -->
+            </div>
+
+              <div class="modal-body" id = 'viewUp'>
+              <%#= render "view_uploadingNotes" %>
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  class_results: 1
+  exam_results: 1
+  student_id: 1
+  total_resullts: 1
+  subject_id: 1
+
+two:
+  class_results: 1
+  exam_results: 1
+  student_id: 1
+  total_resullts: 1
+  subject_id: 1

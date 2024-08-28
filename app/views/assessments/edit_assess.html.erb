@@ -1,0 +1,57 @@
+<style>
+.form-container {
+  width: 50%;
+  margin: 50px auto 0; /* Add margin to the top */
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9; /* Add background color */
+}
+
+.form-inputs {
+  margin-bottom: 10px;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.btn-submit {
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none; /* Remove button border */
+  padding: 10px 20px; /* Adjust button padding */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  border-radius: 5px; /* Add button border radius */
+}
+
+.btn-submit:hover {
+  background-color: #0056b3; /* Darker background color on hover */
+}
+
+
+
+</style>
+
+<div class="form-container">
+  <p style="font-size: 18px; color: red;">Updating <%= @assessment_masters_name%>Marks for 
+    <span style="color: blue;"><%=@first_name %></span> 
+    <span style="color: blue;"><%=@last_name %>:</span>
+  </p>
+  <%= simple_form_for @editassessment, url: { action: "update_assessment" }, method: :post do |f| %>
+    <div class="form-inputs">
+      <%= f.input :marks, value: @marks %>
+    </div>
+    <div class="form-inputs">
+      <%= f.input :id, as: :hidden, input_html: { value: @id } %>
+    </div>
+    <div class="form-inputs">
+      <input type="hidden" name="class_id" value="<%= @class_id %>" >
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-danger" %>
+    </div>
+  <% end %>
+</div>
+
+

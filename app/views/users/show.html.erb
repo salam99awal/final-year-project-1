@@ -1,0 +1,39 @@
+
+
+  <center>
+
+    <br/>
+    <div class="row2">
+      <div class="col-md-4 col-md-offset-4">
+        <fieldset>
+          <legend>Details</legend>
+          <table class="table table-striped table-hover table-bordered">
+            <tr>
+              <td  style="background-color:#B6B6B6;color:#fff;">User</td>
+              <td><%= @user.username %></td>
+            </tr>
+
+            <tr>
+              <td  style="background-color:#B6B6B6;color:#fff;">fullname</td>
+              <td><%= @user.fullname %></td>
+            </tr>
+
+            <tr>
+              <td style="background-color:#B6B6B6;color:#fff;">Email</td>
+              <td><%= @user.email %></td>
+            </tr>
+
+            <tr>
+              <td style="background-color:#B6B6B6;color:#fff;">Role</td>
+              <td><%= @user.a_role.role_name %></td>
+            </tr>
+
+          </table>
+
+          <%#= link_to 'Edit', edit_user_path(@user), class:'btn btn-primary' %>
+          <%= link_to 'Back', users_path, class:'btn btn-danger' %>
+
+        </fieldset>
+      </div>
+    </div>
+  </center>

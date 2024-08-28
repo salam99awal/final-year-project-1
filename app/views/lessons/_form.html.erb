@@ -1,0 +1,306 @@
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<style>
+input, textarea {
+ 
+    width: 90% !important;
+}
+
+.btn, .button {
+   
+    width: 30% !important;
+}
+</style>
+
+ <div class="content-wrapper">
+  <div class="row">
+              
+              <div class="col-lg-8 d-flex grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-wrap justify-content-between">
+                      <h4 class="card-title mb-3"  style="color: red;font-weight: 900">New Lesson Plan</h4>
+                    </div>
+
+  <%= simple_form_for(@lesson)  do |form| %>
+  
+
+
+
+      <div class="label-field-pair">
+        <label for="student_grade" style="font-weight: 900">LESSON TOPIC<span class="necessary-field">*</span> </label>
+        
+        <div class="col-8 col-md-8">
+      
+      
+
+          <%= form.input :title, label: false, class: "form-control obj" ,input_html: {  class: "form-control", rows: "5"}%>
+        
+        </div>
+      </div>
+      <br>
+
+
+        <div class="label-field-pair" id="original-inputs">
+        <label for="student_grade" style="font-weight: 900">LEARNING
+OBJECTIVES<span class="necessary-field">*</span> </label>
+        
+        <div class="col-8 col-md-8">
+      
+         <%= form.input :objectives, label: false, class: "form-control obj" ,input_html: {  class: "form-control", rows: "5"}%>
+
+    
+        
+        </div>
+      </div>
+      <br>
+
+      <div class="label-field-pair" id="dynamic-inputs">
+      </div>
+
+<br>   
+
+          <div class="label-field-pair">
+        <label for="student_grade" style="font-weight: 900">CONTENT/
+SUBJECT MATTER<span class="necessary-field">*</span> </label>
+        
+        <div class="col-8 col-md-8">
+      
+         <%= form.input :procedures, label: false, required: true,input_html: { class: "form-control", rows: "5"} %>
+        
+        </div>
+      </div>
+      <br>
+
+          <div class="label-field-pair">
+        <label for="student_grade" style="font-weight: 900">    REVIEW OF
+PREVIOUS
+KNOWLEDGE
+(RPK)<span class="necessary-field">*</span> </label>
+        
+        <div class="col-8 col-md-8">
+      
+         <%= form.input :review, label: false, required: true,input_html: { class: "form-control",  rows: "5"} %>
+        
+        </div>
+      </div>
+   <br>
+          <div class="label-field-pair">
+        <label for="student_grade" style="font-weight: 900">LEARNING
+ACTIVITIES
+TLMs </label>
+        
+        <div class="col-8 col-md-8">
+      
+         <%= form.input :activities, label: false, required: true,input_html: {  class: "form-control",rows: "5"} %>
+        
+        </div>
+      </div>
+      <br>
+
+           <div class="label-field-pair">
+        <label for="student_grade" style="font-weight: 900">SKILLS &amp;
+COMPETENCE
+TO DEVELOP</label>
+        
+        <div class="col-8 col-md-8">
+      
+         <%= form.input :skills, label: false, required: true,class: "form-control",input_html: { class: "form-control", rows: "5"} %>
+        
+        </div>
+      </div>
+        <br>
+
+            <div class="label-field-pair">
+        <label for="student_grade" style="font-weight: 900">ASSESSMENT</label>
+        
+        <div class="col-8 col-md-8">
+      
+         <%= form.input :assesments, label: false, required: true,input_html: { class: "form-control", rows: "5"} %>
+        
+        </div>
+      </div>
+        <br>
+
+            <div class="label-field-pair">
+        <label for="student_grade" style="font-weight: 900">REMARKS/
+EVALUATION OF
+LESSON</label>
+        
+        <div class="col-8 col-md-8">
+      
+         <%= form.input :remarks, label: false, required: true,class: "form-control",input_html: {class: "form-control",  rows: "5"} %>
+        
+        </div>
+      </div>
+        <br>
+
+          <div class="label-field-pair">
+        <label for="student_grade" style="font-weight: 900">DURATION OF LESSON<span class="necessary-field">*</span> </label>
+        
+        <div class="col-8 col-md-8">
+      
+         <%= form.input :duration, label: false,required: true,input_html: {class: "form-control",  rows: "5"}  %>
+        
+        </div>
+      </div>
+        <br>
+
+            <div class="label-field-pair">
+        <label for="student_grade" style="font-weight: 900">WEEK DAY<span class="necessary-field">*</span> </label>
+        
+        <div class="col-8 col-md-8">
+      
+         <%= form.input :weekday, label: false,required: true, :collection => %w[Week-1 Week-2 Week-3 Week-4 Week-5 Week-6 Week-7 Week-8 Week-9 Week-10 Week-11 Week-12 Week-13 Week-14 Week-15 Week-16 Week-17 Week-18 Week-19 Week-20],input_html: {class: "form-control",  rows: "5"}  %>
+        
+        </div>
+      </div>
+        <br>
+
+  <div class="label-field-pair">
+        <label for="student_grade" style="font-weight: 900">LESSON DATE<span class="necessary-field">*</span> </label>
+        
+        <div class="col-8 col-md-8">
+    
+         <%#= form.input :lesson_date, label: false,required: true,class: "datepicker",as: :string %>
+
+          <%= form.date_field :lesson_date ,class: "form-control datepicker" %>
+        
+        </div>
+      </div>
+
+
+
+      
+
+          <div class="label-field-pair">
+       
+        
+        <div class="col-8 col-md-8">
+      
+         <%= form.input :user_id,class: "form-control" ,:as=> :hidden,input_html: {value: @user_id}%>
+        
+        
+        </div>
+      </div>
+
+        <div class="label-field-pair">
+    
+        
+        <div class="col-12 col-md-10">
+      
+         <%= form.input :class_id, label: false,:as=> :hidden,class: "form-control" ,input_html: {value: current_user.class_id}%>
+
+    
+        
+        </div>
+      </div>
+
+        <div class="label-field-pair">
+        <%# <label for="student_grade"> TEACHING STATUS </label> %>
+        
+        <div class="col-12 col-md-10">
+      
+         <%= form.input :status,class: "form-control",:as=> :hidden %>
+        
+        </div>
+      </div>
+
+          <div class="label-field-pair">
+             <div class="col-12 col-md-10">
+      
+         <%= form.input :subject_id,class: "form-control",:as=> :hidden, input_html: {value: @subject_id} %>
+        
+        </div>
+
+        
+        <!--  <div class="label-field-pair">
+             <div class="col-12 col-md-10">
+              
+                <label for="student_grade">Upload Lesson Notes<span class="necessary-field">*</span> </label>
+              <br>
+              <%#= form.file_field :avafile, direct_upload: true, accept: 'application/pdf',class: "form-control" %>
+
+               <%#= form.file_field :avafile, direct_upload: true,class: "form-control" %>
+              
+            </div> -->
+
+            <br>
+      </div>
+
+
+  <div class="actions">
+   
+       <%= form.submit "► Save Proceed", class: "btn btn-success" %>
+  </div>
+<% end %>
+    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+<!-- <div id="original-inputs">
+  <label>Label</label>
+  <input name='label' />
+  <label>Amount</label>
+  <input name='amount' />
+  <br/>
+</div> -->
+
+<!--  <div id="dynamic-inputs"></div> 
+
+
+<button id='sendRequest' onclick='submiForm()'>submit</button> -->
+
+
+<script>
+function addMore(){
+    $("#dynamic-inputs").append($("#original-inputs").html())
+  }
+
+  function submiForm() {
+          var obj = document.getElementsByClassName('obj') 
+          if (obj.length > 0) {
+   
+        // console.log({'OBJECTIVES': obj[0].value})
+        // console.log({'OBJECTIVES': obj[1].value})
+    }
+
+     let objec_data = []
+
+       for (var i = 0; i < obj.length; i++) {
+          
+                               console.log({'MAY OBJECTIVES': obj[i].value})
+
+                                objec_data.push({'objectives': obj[i].value})
+                    }
+
+               console.log({'objec_data': objec_data})
+
+          
+
+    let data = []
+    $("[name='label']").each((i, item)=>
+    {
+      data.push({'label': item.value, 'amount':  $("[name='amount']")[i].value})
+    })
+    console.log({'quote_amounts': data})
+    $.ajax({
+        url: '/lessons',
+        data: {'quote_amounts': data},
+        type: 'POST',
+        success: function(data){
+            // handle your success here
+            console.log(data);
+        }
+    });
+  }
+  </script>
+
+

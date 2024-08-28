@@ -1,0 +1,10 @@
+if(<%= @fee_find%> == 1){
+    console.log("this is a fees amount for <%@class_id %> ")
+    $("#Grade").html("<p> Fees for Grade <%=@class_id %> </p>")
+
+    $("#textDanger").html("<p>Total Fees: <%=@fee_amount %></p>")
+}
+else{
+
+    console.log("NOT this is a fees find")
+}

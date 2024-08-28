@@ -1,0 +1,54 @@
+
+      <div class="content-wrapper">
+  <div class="row">
+
+    <div class="col-lg-12 d-flex grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-wrap justify-content-between">
+                      <h4 class="card-title mb-3"> Users</h4>
+   
+                    </div>
+
+                    <div class="table-responsive">
+                      <table class="table">
+                  <thead>
+                    <tr class="tr-head">
+                      <td scope="col">User name</td>
+                      <td scope="col">Fullname </td>
+                      <td scope="col">Role </td>
+                       <td ></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                 
+                    <% @users.each do |user| %>
+                      <tr class="tr-odd">
+                        <td class="col-1"><%= user.username %></td>
+                        <td class="col-1"><%= user.full_name %></td>
+                     
+                        <td class="col-1"> <%= user.a_role.name if user.a_role %>
+                          <td class="col-1"><%=link_to 'Edit', edit_user_path(user), class: "btn btn-info"%></td>
+                          <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+
+
+
+                           
+                        
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                   </div>
+                  </div>
+                  
+                </div>
+                 
+              </div>
+            </div>
+            <%= link_to 'New User', new_user_path, class: "btn btn-info"%>
+          </div>
+          <br>
+               
+          
+     

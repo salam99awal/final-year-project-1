@@ -1,0 +1,2 @@
+class StudentAttendance < ApplicationRecord
+end

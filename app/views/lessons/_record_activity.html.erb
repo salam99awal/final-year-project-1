@@ -1,0 +1,84 @@
+
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<style>
+input, textarea {
+ 
+    width: 90% !important;
+}
+
+.btn, .button {
+   
+    width: 30% !important;
+}
+</style>
+
+<div class="card">
+                            
+                            <div class="card-body card-block">
+
+
+  <%= simple_form_for @lesson,:url =>{:action=>"record_activity_post", :controller=> "lessons"}  do |form| %>
+  
+
+            <div class="label-field-pair">
+        <label for="student_grade">ASSESSMENT GIVEN</label>
+        
+        <div class="col-12 col-md-10">
+      
+         <%= form.input :assesments, label: false, required: true,class: "form-control",input_html: {  rows: "4"} %>
+        
+        </div>
+      </div>
+
+            <div class="label-field-pair">
+        <label for="student_grade">REMARKS/
+EVALUATION OF
+LESSON</label>
+        
+        <div class="col-12 col-md-10">
+      
+         <%= form.input :remarks, label: false, required: true,class: "form-control",input_html: {  rows: "4"} %>
+        
+        </div>
+      </div>
+
+
+
+        <div class="label-field-pair">
+      
+        
+        <div class="col-12 col-md-10">
+      
+         <%= form.input :id, label: false, :as => :hidden,required: true,class: "form-control" ,input_html: {value: @lesson_id}%>
+
+    
+        
+        </div>
+
+          <div class="col-12 col-md-10">
+      
+         <%= form.input :subject_id, label: false, :as => :hidden,required: true,class: "form-control" ,input_html: {value: @subject_id}%>
+
+    
+        
+        </div>
+      </div>
+
+
+
+
+  <div class="actions">
+    <%#= form.submit, class: "form-control"  %>
+
+       <%= form.submit "► Record", class: "btn btn-success" %>
+  </div>
+<% end %>
+<br>
+<br>
+
+
+
+
+

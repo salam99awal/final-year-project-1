@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @note_upload.user_id %>
+</p>
+
+<p>
+  <strong>Lesson:</strong>
+  <%= @note_upload.lesson_id %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @note_upload.subject_id %>
+</p>
+
+<%= link_to 'Edit', edit_note_upload_path(@note_upload) %> |
+<%= link_to 'Back', note_uploads_path %>

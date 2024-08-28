@@ -1,0 +1,95 @@
+<div class="content-wrapper">
+  <div class="row">
+              
+              <div class="col-lg-12 d-flex grid-margin stretch-card">
+                <div class="card">
+                
+                  <div class="card-body">
+                    <div class="form-inline">
+                            <form class="search-form" style="float:right;display: flex;margin-left: 60%"> 
+                             <%= simple_form_for(@student) do |f| %>
+                    
+
+                                  <%= f.input :first_name,:label => false ,placeholder: "Search Name ..." , input_html: {class: "form-control mr-sm-2"}%>
+                                <button class="btn btn-danger btn-sm" type="submit"> Search</button>
+                                <% end %>
+                                   </form> 
+<%= form_tag import_students_path, class:'d-flex align-item-center p-2 g-2', multipart: true do %>
+  <%= file_field_tag :file, class: 'select__file', require: true %>
+  <%= submit_tag 'Import CSV', class: 'import__btn', onclick: 'disableButton(this)' %>
+<% end %>
+
+                        </div> <br>
+                    <div class="d-flex flex-wrap justify-content-between">
+                      <h4 class="card-title mb-3">Students</h4>
+                    </div>
+                      
+                      
+
+  <div class="table-responsive">
+                      <table class="table">
+    <tr >
+      <th scope="col">Name</th>
+       <th scope="col">Class</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Dob</th>
+       <th scope="col">Religion</th>
+        <th scope="col">Actions</th>
+       <th>   <%= link_to 'New Student', new_student_path,class: "btn btn-primary"  %> </th>
+
+       
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr scope="row">
+        <td><%= student.first_name.to_s + " " + student.middle_name.to_s + " " + student.last_name.to_s %></td>
+<td><%= student.name %></td>
+          
+            
+           
+        <td><%= student.gender  %></td>
+        <td><%= student.date_of_birth  %></td>
+         <td><%= student.religion  %></td>
+ 
+        <td><%= link_to 'Edit', edit_student_path(student),class: "btn btn-warning"  %></td>
+        <td> <%= link_to 'Student Details', student_details_path(:id=>student.id), {:remote => true, class:'btn btn-success','data-toggle' =>  "modal",'data-target' => '#myModal1','data-backdrop'=> "static", 'data-keyboard'=>"false"}  %> </td>
+     <td> <%= link_to 'Delete', student, method: :delete, :class => "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+    
+<br>
+
+
+
+         </div>
+           <%= link_to 'New Student', new_student_path,class: "btn btn-primary"  %>
+                              </div>
+                  </div>
+                 
+                </div>
+               
+              </div>
+            </div>
+
+ <div id="myModal1" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content" >
+              <div class="modal-header">
+                <h4 class="modal-title"> Student Details</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body" id = 'fill'>
+              
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+         </div>
+       </div> 

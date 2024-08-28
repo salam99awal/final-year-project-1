@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Misc Uploads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>File</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @misc_uploads.each do |misc_upload| %>
+      <tr>
+        <td><%= misc_upload.user_id %></td>
+        <td><%= misc_upload.file %></td>
+        <td><%= link_to 'Show', misc_upload %></td>
+        <td><%= link_to 'Edit', edit_misc_upload_path(misc_upload) %></td>
+        <td><%= link_to 'Destroy', misc_upload, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Misc Upload', new_misc_upload_path %>

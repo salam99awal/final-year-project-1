@@ -1,0 +1,63 @@
+
+
+<div class="card">
+                            <div class="card-header">
+                            </div>
+                            <div class="card-body card-block">
+<%= form_with(model: remark, local: true) do |form| %>
+
+
+      <div class="field ">
+
+
+    <%= form.hidden_field :stud_id, value: @student_id,class: "form-control"%>
+
+   </div>
+
+   <!--type: :hidden-->
+
+  <div class="col-12 col-md-6">
+    <%= form.label :student_attendance %>
+    <%= form.number_field :student_attendance,class: "form-control", autocomplete: "off" %>
+  </div>
+
+    <div class="col-12 col-md-6">
+    <%= form.label :overall_attendance %>
+    <%= form.number_field :overall_attendance,class: "form-control", autocomplete: "off" %>
+  </div>
+
+      <div class="col-12 col-md-6">
+    <%= form.label :promoted_to %>
+    <%= form.text_field :promoted_to,class: "form-control", autocomplete: "off" %>
+  </div>
+
+    <div class="col-12 col-md-6">
+    <%= form.label :teacher_remark %>
+    <%= form.text_field :teacher_remark,class: "form-control", autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+      <div class="col-12 col-md-6">
+
+    <%= form.label :teacher_conduct %>
+
+    <%= form.text_field :teacher_conduct,class: "form-control", autocomplete: "off" %>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <%= form.hidden_field :teacher_id, value: current_user.id,class: "form-control" %>
+  </div>
+<br>
+  <div class="actions ">
+    <%= form.submit class: "btn btn-primary"%>
+  </div>
+<% end %>
+
+   </div>
+
+</div>
+
+
+
+
+

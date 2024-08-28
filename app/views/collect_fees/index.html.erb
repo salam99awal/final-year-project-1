@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Collect Fees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount received</th>
+      <th>Student</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @collect_fees.each do |collect_fee| %>
+      <tr>
+        <td><%= collect_fee.amount_received %></td>
+        <td><%= collect_fee.student_id %></td>
+        <td><%= collect_fee.user_id %></td>
+        <td><%= link_to 'Show', collect_fee %></td>
+        <td><%= link_to 'Edit', edit_collect_fee_path(collect_fee) %></td>
+        <td><%= link_to 'Destroy', collect_fee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Collect Fee', new_collect_fee_path %>

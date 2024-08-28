@@ -1,0 +1,218 @@
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.logo{
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  position: absolute;
+
+}
+
+.line{
+  margin-top:20px;
+}
+
+.school-address{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.school-address p {
+  line-height: 0.5;
+}
+
+
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.remarks{
+    width: 90%;
+
+}
+
+.remarks .no-border{
+  border: none !important;
+}
+ class="no-border"
+.tpr{
+  padding-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+th,tr,td {
+    border:1px solid
+}
+
+.table-me{
+  width: 100%;
+  height: 140px;
+  border-collapse: collapse;
+  border: 6px solid;
+}
+
+.grade-table{
+  margin-top: 70px;
+}
+
+.table-for-grade{
+  border: 6px solid;
+  border-collapse: collapse;
+  width: 100%;
+  height:350px;
+}
+
+.table-for-attendance{
+  border: 6px solid;
+  border-collapse: collapse;
+  width: 100%;
+  height:50px;
+}
+
+.attendance-table{
+  margin-top: 70px;
+}
+
+.remark-table{
+  margin-top: 35px;
+}
+
+.table-for-remark{
+  border: 6px solid;
+  border-collapse: collapse;
+  width: 100%;
+  height:50px;
+}
+</style>
+<!--.uniq .join(',')-->
+<div class="report-card">
+<img src="https://res.cloudinary.com/sahanana/image/upload/v1662759745/winkles_logo_nkdgeo.jpg", class="logo" />
+<div class="school-address">
+  <h1>THE WINKLES SCHOOL</h1>
+  <p>P.O Box CC 3156, TEMA</p>
+  <p>TEL: 0209210765 | 0548494024</p>
+  <p>thewinklesschoolgh@gmail.com</p>
+</div>
+<div>
+<h1 class="school-address tpr">TERMINAL PROGRESS REPORT</h1>
+</div>
+
+<div class="id-table">
+<table class="table-me">
+<tbody>
+  <tr>
+  <%if name[0].middle_name.nil?%>
+      
+<td colspan="2">NAME: <%= name[0].first_name.upcase + " " + name[0].last_name.upcase %>   </td>
+
+  <%else%>
+    <td colspan="2">NAME: <%= name[0].first_name.upcase + " " + name[0].middle_name.upcase  + " " + name[0].last_name.upcase
+ %>   </td>
+    <%end%>
+    <td >GRADE: <%= @classname%></td>
+  </tr>
+  <tr>
+    <td >NO. ON ROLL: <%= @class_count%></td>
+    <td>ACADEMIC YEAR: <%= "#{Time.now.year} / #{Time.now.year + 1}" %></td>
+    <td >TERM: 1 </td>
+  </tr>
+  <tr>
+    <td colspan="3">NEXT TERM BEGINS: <%= @date%></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div class="grade-table">
+<table class="table-for-grade">
+<thead>
+  <tr>
+    <th>SUBJECT</th>
+    <th>CLASS SCORE</th>
+    <th>EXAM SCORE</th>
+    <th>TOTAL</th>
+    <th>REMARK</th>
+  </tr>
+</thead>
+<tbody>
+<% grade.each do |grades| %>
+  <tr>
+    <td><%= grades.subject_master.name %></td>
+    <td><%= grades.class_results %></td>
+    <td><%= grades.exam_results %></td>
+    <td><%= grades.total_resullts %></td>
+    <td><%= grades.remark %></td>
+  </tr>
+<%end%>
+</tbody>
+</table>
+</div>
+<div class="attendance-table">
+<table class="table-for-attendance">
+<tbody>
+<tr>
+<td>ATTENDANCE: <%= @student_attendance%></td>
+<td>OUT OF: <%= @overall_attendance%> </td>
+<td>PROMOTED TO:  <%= @promoted_to %> </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="remark-table">
+<table class="table-for-remark">
+<thead>
+<tr>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="3">CLASS TEACHER'S REMARK: <%= @teacher_remark%></td>
+</tr>
+<tr>
+<td colspan="3"> STUDENT CONDUCT:<%= @teacher_conduct%></td>
+</tr>
+<tr>
+<td colspan="2">CLASS TEACHER: <%=@teacher_name_me%> </td>
+<td> </td>
+</tr>
+<tr>
+<td colspan="2">HEADMASTER: Mr. Benjamin Osei-Adjei</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<hr class="line">
+<br>
+<h3>REMARK:</h3>
+<table class="remarks">
+<tbody>
+<tr>
+<td class="no-border">80-100 = High Proficiency</td>
+<td class="no-border">68-79 =  Proficiency</td>
+<td class="no-border">54-67 = Approaching Proficiency</td>
+</tr>
+<tr>
+<td class="no-border" >40-53 = Developing</td>
+<td class="no-border" >0-39 =  Emerging</td>
+</tr>
+</tbody>
+</table>
+</div>

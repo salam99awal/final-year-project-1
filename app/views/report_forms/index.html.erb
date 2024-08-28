@@ -1,0 +1,73 @@
+      <div class="content-wrapper">
+  <div class="row">
+
+    <div class="col-lg-12 d-flex grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-wrap justify-content-between">
+                      <h4 class="card-title mb-3"> Forms shown on Report</h4>
+
+                    </div>
+
+                    <div class="table-responsive">
+                      <table class="table">
+
+    <tr>
+
+      <th scope="col">Resident cost per day</th>
+
+      <th scope="col">Resident no of days</th>
+
+      <th scope="col">Resident books</th>
+
+      <th scope="col">Non Resident cost per day</th>
+
+      <th scope="col">Non Resident no of day</th>
+
+      <th scope="col"></th>
+
+    </tr>
+
+  </thead>
+
+
+  <tbody>
+
+    <% @report_forms.each do |report_form| %>
+
+      <tr>
+
+        <td><%= report_form.resident_cost_per_day %></td>
+
+        <td><%= report_form.resident_no_of_days %></td>
+
+        <td><%= report_form.resident_books %></td>
+
+        <td><%= report_form.nr_cost_per_day %></td>
+
+        <td><%= report_form.nr_no_of_day %></td>
+
+
+
+        <td><%= link_to 'Edit', edit_report_form_path(report_form),class: "btn btn-outline-warning" %></td>
+
+        <td><%= link_to 'Destroy', report_form, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-outline-danger" %></td>
+
+      </tr>
+
+    <% end %>
+
+  </tbody>
+
+</table>
+
+
+
+
+<%= link_to 'New Report Form', new_report_form_path ,class: "btn btn-outline-primary"%>
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>

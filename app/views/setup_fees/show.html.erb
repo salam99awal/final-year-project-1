@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @setup_fee.name %>
+</p>
+
+<p>
+  <strong>Class:</strong>
+  <%= @setup_fee.class_id %>
+</p>
+
+<%= link_to 'Edit', edit_setup_fee_path(@setup_fee) %> |
+<%= link_to 'Back', setup_fees_path %>

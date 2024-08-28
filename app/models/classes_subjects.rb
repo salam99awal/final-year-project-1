@@ -1,0 +1,3 @@
+class ClassesSubjects < ApplicationRecord
+
+end 

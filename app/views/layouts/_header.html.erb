@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <body id="app-container" class="menu-default">
+      <nav class="navbar fixed-top">
+        
+        <a class="navbar-logo" href="/"><span class="logo d-none d-xs-block"></span> <span
+                class="logo-mobile d-block d-xs-none"></span></a>
+        <div class="navbar-right">
+          <div class="header-icons d-inline-block align-middle">
+            <div class="d-none d-md-inline-block align-text-bottom mr-3">
+            </div>
+          
+          </div>
+          
+            <div class="user d-inline-block">
+                <div class="dropdown-menu dropdown-menu-right mt-3">
+               
+                    <%= link_to 'Roles'.html_safe,roles_path, :class=>" dropdown-item" %>
+                    <%= link_to 'Class'.html_safe,class_fields_path, :class=>" dropdown-item" %>
+                     <%= link_to 'Subjects Setup'.html_safe,subject_masters_path, :class=>" dropdown-item" %>
+                     <%= link_to 'Subjects '.html_safe,subjects_path, :class=>" dropdown-item" %>
+                      <%= link_to 'Students '.html_safe,students_path, :class=>" dropdown-item" %>
+                      <%= link_to 'Accements '.html_safe,root_path, :class=>" dropdown-item" %>
+                    <%= link_to 'Users'.html_safe,users_path, :class=>" dropdown-item" %>
+                    
+                   <%= link_to 'Edit Profile'.html_safe,edit_user_registration_path, :class=>" dropdown-item" %>
+
+                    <%= link_to 'Log out',destroy_user_session_path, :method=> 'delete',:class=>"dropdown-item" %>
+                
+                </div>
+              </div>
+       
+          </div>
+        </nav>
+
+     
+        <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685486/medapp/javascripts/vendor/bootstrap.bundle.min_p8qqjg.js"></script>
+        <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685488/medapp/javascripts/vendor/perfect-scrollbar.min_lknb38.js"></script>
+        <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685488/medapp/javascripts/vendor/progressbar.min_ymgruj.js"></script>
+        <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685486/medapp/javascripts/vendor/jquery.barrating.min_pntots.js"></script>
+        <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685489/medapp/javascripts/vendor/select2.full_wxcuyz.js"></script>
+        <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685488/medapp/javascripts/vendor/nouislider.min_vooyso.js"></script>
+        <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685488/medapp/javascripts/vendor/Sortable_p6vmgb.js"></script>
+        <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685487/medapp/javascripts/vendor/mousetrap.min_fe4rry.js"></script>
+        
+        <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685483/medapp/javascripts/scripts_mphfcd.js"></script>
+        <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685484/medapp/javascripts/vendor/bootstrap-notify.min_dzvx1j.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+        <script type="text/javascript" src="https://res.cloudinary.com/sahanana/raw/upload/v1586685484/medapp/javascripts/bootstrap-datetimepicker_bsqd1z.js"></script>
+     
+    </body>
+  </html>

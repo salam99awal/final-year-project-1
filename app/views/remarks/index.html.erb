@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Remarks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student Name</th>
+
+      <th>Student remark</th>
+
+      <th>Student conduct</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @remarks.each do |remark| %>
+      <tr>
+       <td><%= remark.first_name%></td>
+        <td><%= remark.teacher_remark %></td>
+           <td><%= remark.teacher_conduct %></td>
+        <td><%= link_to 'Show', remark %></td>
+        <td><%= link_to 'Edit', edit_remark_path(remark) %></td>
+        <td><%= link_to 'Destroy', remark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

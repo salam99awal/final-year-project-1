@@ -1,0 +1,2 @@
+module SetupFeesHelper
+end

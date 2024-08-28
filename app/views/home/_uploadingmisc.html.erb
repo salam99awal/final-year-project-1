@@ -1,0 +1,30 @@
+<div class="table-agile-info">
+  <%= simple_form_for @misc_upload do |f| %>
+    <div class="container">
+      <fieldset>
+        <div class="row2">
+          <div class="col-md-6">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token.to_s %>">
+            <div class="ggg">
+              <%= f.label :File,  :style=> "margin-left: -40px;" %>
+              <br>
+              <%= f.file_field :avafile,  class: "form-control", :style=> "margin-left: -40px;" %>
+            </div>
+            <br>
+           
+             
+             
+              <div class="form-inputs">
+                <%= f.input :user_id, :as=> :hidden, input_html: {value: current_user.id} %>
+              </div>
+             
+              <div class="col-md-5 col-md-offset-1" style="margin-left: -45px;">
+                <%= f.button :submit,"Submit", :class => 'btn-success',:style=>"width:auto;" %>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+ 
+  <% end %>
+</div>

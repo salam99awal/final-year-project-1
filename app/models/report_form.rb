@@ -1,0 +1,3 @@
+class ReportForm < ApplicationRecord
+
+end

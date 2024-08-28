@@ -1,0 +1,15 @@
+<!-- _promote_all_form.html.erb -->
+
+<%= form_tag promote_all_students_path, method: :post do %>
+  <div class="form-group">
+  <%= label_tag :class_id, 'Select Current Class' %>
+
+  <%= select_tag :class_id, options_for_select([['Select Class', '']] + ClassField.all.map { |c| [c.name, c.id] }, @class_id), class: 'form-control' %>
+
+    <%= label_tag :new_class_id, 'Select Promoted Class' %>
+
+    <%= select_tag :new_class_id, options_for_select(ClassField.all.map { |c| [c.name, c.id] }), class: 'form-control' %>
+    
+  </div>
+  <%= submit_tag 'Promote All', class: 'btn btn-primary' %>
+<% end %>

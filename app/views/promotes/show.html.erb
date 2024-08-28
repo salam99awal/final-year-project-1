@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @promote.student_id %>
+</p>
+
+<p>
+  <strong>From class:</strong>
+  <%= @promote.from_class_id %>
+</p>
+
+<p>
+  <strong>To class:</strong>
+  <%= @promote.to_class_id %>
+</p>
+
+<%= link_to 'Edit', edit_promote_path(@promote) %> |
+<%= link_to 'Back', promotes_path %>

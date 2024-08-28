@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>School</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+ 
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    
+   
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685431/medapp/stylesheets/vendor/bootstrap.rtl.only.min_v8h91x.css">
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685455/medapp/stylesheets/vendor/perfect-scrollbar_fqyjil.css">
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685455/medapp/stylesheets/vendor/nouislider.min_pvgz8s.css">
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685428/medapp/stylesheets/vendor/bootstrap-datepicker3.min_ycezi1.css">
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685431/medapp/stylesheets/vendor/component-custom-switch.min_k9lcoq.css">
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685425/medapp/stylesheets/main_p6eqjx.css">
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685429/medapp/stylesheets/vendor/bootstrap-float-label.min_evshxh.css">
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685456/medapp/stylesheets/vendor/smart_wizard.min_cophyo.css">
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685430/medapp/stylesheets/vendor/bootstrap-tagsinput_ypmnk8.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685423/medapp/stylesheets/bootstrap-datetimepicker_ir81t1.css">
+  </head>
+
+  <body>
+  <%= render 'layouts/header' %>
+    <%= yield %>
+  </body>
+</html>

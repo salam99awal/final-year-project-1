@@ -1,0 +1,99 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/timer.jquery/0.7.0/timer.jquery.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'> </link> 
+<style>
+
+        <style>
+        #resume{
+            display: none
+        }
+
+        .boxTimer{
+                border: 8px solid brown;
+    border-radius: 36px;
+    width: 100px;
+    height: 100px;
+    display: none
+        }
+
+        #timer1{
+                text-align: center;
+    margin-top: 34%;
+    font-size: 20px;
+    overflow-wrap: break-word;
+    font-weight: 900;
+}
+    
+  @media  (min-width: 576px){
+.modal-dialog {
+    max-width: 1000px !important;
+}
+  }
+        </style>
+
+
+
+                
+
+                    <div class="table-responsive">
+                      <table class="table">
+
+
+  <tbody>
+
+ 
+    <% @lessons.each do |lesson| %>
+      <tr>
+      
+        <td>  <iframe id="myIframe" width='900' height='600' allowfullscreen webkitallowfullscreen></iframe> </td>
+        
+
+  
+
+        
+
+<!--      <button class= "btn btn-danger" data-toggle="modal" data-target="#myModal4">View Lesson Notes</button> -->
+
+
+  
+               <% if lesson.avafile.attached? %>
+                        <td class='"btn btn-warning"' style="display: none">
+                          <%= link_to "View Lesson Note", rails_blob_path(lesson.avafile, disposition: :preview),{ :class => "btn btn-primary",:id => "linka" } %>
+
+                    
+                        </td>
+                 <% end%>   
+
+     
+  
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+     </div>
+                
+         
+
+
+<script>
+
+$(document).ready(function () {
+ 
+
+    var fie = document.getElementById("linka");
+    let myIframe = document.getElementById("myIframe") ;
+ 
+   console.log(`Linka is ---- ${fie}`);
+    myIframe.src = fie;
+
+})
+
+  </script>
+
+
+
+  

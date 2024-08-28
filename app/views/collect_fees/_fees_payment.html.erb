@@ -1,0 +1,73 @@
+<style>
+#textDanger{
+    color: red;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Nunito';
+  }
+  #Grade{
+    color: red;
+    font-size: 40px;
+    font-weight: 600;
+    font-family: 'Nunito';
+  }
+</style
+
+<div>
+<%= form_with(model: @collect_fee, local: true) do |form| %>
+    <div id="Grade"></div>
+
+    <div id="textDanger">Ghc</div>
+    <div class="field">
+    <%= form.label :fees_type , label: "Select Fee type"%><br>
+    <%#= form.collection_select :fees_type, SetupFee.all, :id, :name ,{:include_blank => 'Please Select Fees'}%>
+
+      <%= form.collection_select :fees_type, SetupFee.where(class_id: @class_id), :id, :name,{:include_blank => 'Please Select Fees'}, {class: "form-control" } %>
+
+
+  </div>
+    <div class="field">
+    <%= form.label :amount_received %><br>
+    <%= form.number_field :amount_received ,class: "form-control"%>
+  </div>
+
+  <div class="field">
+    <%#= form.label :student_id %><br>
+    <%= form.hidden_field :student_id,value:@class_id %>
+  </div>
+
+  <div class="field">
+    <%#= form.label :user_id %><br>
+    <%= form.hidden_field :user_id,value: current_user.id%>
+  </div>
+    
+  
+  <div class="actions">
+  <%= form.submit "Submit", class: 'btn btn-outline-primary' %>
+</div>
+  <% end %>
+</div>
+
+<script>
+var fee_type2, student_id;
+$("#collect_fee_fees_type").on('change',function(e){
+console.log("this is fee type id")     
+fee_type2 = e.target.value;
+console.log("FEES TYPE SELECTED" + fee_type2)
+student_id = $("#collect_fee_student_id").val();
+console.log("Student ID" + student_id)
+$.ajax({
+    type: "GET",
+    url: "/find_fees",
+    dataType: "script",
+    data: {fee_type: fee_type2,
+     student_id: student_id},
+    success: function(data){
+        console.log(data)
+    }
+
+})
+})
+
+
+</script>

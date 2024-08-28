@@ -1,0 +1,135 @@
+
+
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #b00;
+  color: white;
+}
+</style>
+</head>
+
+
+ <div class="content-wrapper">
+  <div class="row">
+              
+              <div class="col-lg-12 d-flex grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-wrap justify-content-between">
+                      <h4 class="card-title mb-3">Results for <span style="color:red;"><%= @first_name %> <%= @last_name %></span></h4>
+                      <h4><%= link_to 'Go Back',root_path,class: 'btn btn-primary' %></h4>
+
+                    </div>
+
+  <div class="table-responsive">
+                      <table class="table">
+
+
+  <tr>
+  <th scope="col">Subject</th>
+    <th>Mid Term(20)</th>
+<th>Group Work(10)</th>
+<th>Class Work(10)</th>
+<th>Class Test(10)</th>
+
+    <th scope="col">Total class score(100%)</th>
+    <th scope="col"> Total class score(50%)</th>
+    <th scope="col">Exam(50%)</th>
+    <th scope="col">Exam(100%)</th>
+    <th scope="col">Total(50% - 50%)</th>
+    <th scope="col">Grade</th>
+    <th scope="col">Remark</th>
+    <th scope="col">Actions</th>
+    
+
+  </tr>
+  <tbody>
+    <% @total_data.each do |grade| %>
+      <tr>
+
+      <td><%= grade[1] %></td>
+    
+      <% if grade[2].length > 1 %>
+      <td><%= grade[2].join(" ") %><span style="color: red; font-size: 10px"> *Entry More Than Required! Delete!</span></td>
+      
+      <% else %>
+      <td><%= grade[2].join(" ") %></td>
+      <% end %>
+      <td><%= grade[3].join(" ") %></td>
+      <td><%= grade[4].join(" ") %></td>
+      <td><%= grade[5].join(" ") %></td>
+      <td><%= grade[6] %></td>
+      <td><%= grade[7] %></td>
+      <td><%= grade[8] %></td>
+      <td><%= grade[9].join(" ")%></td>
+      <td><%= grade[10] %></td>
+      <td><%= grade[11]%></td>
+      <td><%= grade[12]%></td>
+
+
+<td>
+<% if grade[2].length > 1 %>
+<div><%= link_to 'Delete', delete_assessment_path(id:@student_id,subject_master_id:grade[0]), data: { confirm: 'Are you sure?' },class: "btn btn-outline-danger"  %></div>
+
+         <% else %>
+         <div>
+         <% if grade[15] == true %>
+         <p> Submitted </p>
+         <%else%>
+
+         <%= link_to 'Submit To Calculate Grade', check_grade_path(student_id: @student_id, subject_master_id: grade[0], term: grade[13],is_old:grade[14]), data: { confirm: 'Are you sure?' }, class: 'btn btn-warning' %>
+         <%end%>
+       </div>
+       <br>
+       
+         <div><%= link_to 'Delete', delete_assessment_path(id:@student_id,subject_master_id:grade[0],term:grade[13]), data: { confirm: 'Are you sure?' },class: "btn btn-danger"  %></div>
+     
+      <% end %>
+      </td>
+      </tr>
+    <% end %>
+  
+  </tbody>
+
+
+
+    
+
+  
+
+ 
+</table>
+
+<br>
+
+<br>
+<% if @subject_master_id.nil? %>
+<%else%>
+<br>
+
+<%end%>
+</div>
+             </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+

@@ -1,0 +1,2 @@
+class SetupFee < ApplicationRecord
+end

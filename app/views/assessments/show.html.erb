@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Assessment master:</strong>
+  <%= @assessment.assessment_master_id %>
+</p>
+
+<p>
+  <strong>Marks:</strong>
+  <%= @assessment.marks %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @assessment.student_id %>
+</p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @assessment.a_user.full_name %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @assessment.subject_master.name %>
+</p>
+
+<%= link_to 'Edit', edit_assessment_path(@assessment) %> |
+<%= link_to 'Back', assessments_path %>

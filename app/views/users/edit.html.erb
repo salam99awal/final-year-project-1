@@ -1,0 +1,153 @@
+
+<style>
+
+.style-radio{
+width: 100%;
+
+}
+
+label {
+margin-left: 20px;
+    margin-right: 30px;
+}
+
+</style>
+ 
+ 
+
+<div class="card">
+                            <div class="card-header">
+                                <strong>Edit </strong> User
+                            </div>
+                            <div class="card-body card-block">
+
+
+
+   <%= form_with(model: @user, local: true,url: update_user_path,class: "new_student" ) do |f| %>
+  
+ 
+
+      <span class="span-sub-heading">User Details</span>
+      <hr class="sub-heading">
+
+       <div class="label-field-pair">
+        <label for="student_grade">Username<span class="necessary-field">*</span> </label>
+        <div class="col-12 col-md-6">
+      
+         <%= f.text_field :username, required: true,class: "form-control" %>
+        
+        </div>
+      </div>
+
+      <hr class="label-underline">
+
+      <div class="label-field-pair">
+        <label for="student_grade">Fullname</label>
+        <div class="col-12 col-md-6">
+        
+      
+        <%= f.text_field :full_name, required: true,class: "form-control" %>
+        
+        
+        </div>
+      </div>
+
+      <hr class="label-underline">
+
+      <div class="label-field-pair">
+        <label for="student_grade">Email<span class="necessary-field">*</span> </label>
+        <div class="col-12 col-md-6">
+     <%= f.text_field :email,class: "form-control"%>
+        
+        </div>
+      </div>
+
+      <hr class="label-underline">
+
+      <div id="admission1_form_vertical_block_left">
+
+        <div class="label-field-pair">
+          <label for="student_grade">Roles <span class="necessary-field">*</span></label>
+          <div class="col-12 col-md-6">
+        
+
+ <%= f.collection_select :role_id, Role.all, :id, :name%>
+
+</div>
+        </div>
+
+    
+
+
+
+        <hr class="label-underline">
+
+      <div class="label-field-pair">
+          <label for="student_blood_group" >Choose Class</label>
+          
+          <div class="style-radio">
+         
+
+        <%= f.collection_check_boxes :class_id, ClassField.all, :id, :name, include_hidden: false, :class => "labelcss" %>
+
+</div>
+        </div>
+      
+      
+
+        <hr class="label-underline">
+
+       <div class="label-field-pair">
+          <label for="student_nationality">Subject</label>
+          <div class="col-12 col-md-6">
+           <%= f.collection_select :subject_master_id, SubjectMaster.all, :id, :name, :prompt => true%>
+          </div>
+        </div>
+
+  
+
+
+        <hr class="label-underline">
+
+       <div class="label-field-pair">
+          <label for="student_religion">Password</label>
+          <div class="col-12 col-md-6">
+       
+           <%= f.text_field :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),class: "form-control" %>
+          
+          </div>
+        </div>
+
+            <hr class="label-underline">
+
+        <div class="label-field-pair">
+          <label for="student_religion"> Confirm Password</label>
+          <div class="col-12 col-md-6">
+       
+         <%= f.text_field :password_confirmation, required: true ,class: "form-control"%>
+          
+          </div>
+        </div>
+
+      </div>
+
+        
+        <br>
+     
+      
+ 
+  
+
+
+
+                             <%= f.submit "► Update", class: "btn btn-outline-success" %><br>
+                            <%= link_to 'Back', users_path, class: "btn btn-outline-danger" %>
+      <% end %>
+
+    
+    </div>
+</div>
+
+
+
+

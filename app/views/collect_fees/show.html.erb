@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount received:</strong>
+  <%= @collect_fee.amount_received %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @collect_fee.student_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @collect_fee.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_collect_fee_path(@collect_fee) %> |
+<%= link_to 'Back', collect_fees_path %>

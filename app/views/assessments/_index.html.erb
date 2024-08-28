@@ -1,0 +1,70 @@
+
+
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h1> Results</h1>
+
+<table id="customers">
+  <tr>
+    <th>Mid Term(20)</th>
+    <th>Group Work(10)</th>
+    <th>Class Work(10)</th>
+    <th>Class Test(10)</th>
+
+    <th>Total class score(100%)</th>
+    <th> Total class score(50%)</th>
+    <th>Exam(50%)</th>
+    <th>Exam(100%)</th>
+    <th>Total(50% - 50%)</th>
+    <th>Grade</th>
+    <th>Subject</th>
+
+  </tr>
+ 
+  <% @assessments.each do |assessment| %>
+    <tr>
+     <td><%= assessment.marks%></td>
+      <td><%= assessment.teacher_remark %></td>
+        <td><%= assessment.teacher_conduct %></td>
+
+    </tr>
+  <% end %>
+</tbody>
+
+ 
+</table>
+
+<br>
+
+<br>
+<% if @subject_master_id.nil? %>
+<%else%>
+<td id=""><%= link_to ' Submit To Calculate Grade', check_grade_path(student_id:@student_id, subject_master_id:@subject_id), { :class => "btn btn-success"} %></td>
+
+<%end%>
+

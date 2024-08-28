@@ -1,0 +1,81 @@
+<style>
+  .blocktext {
+      margin-left: auto;
+      margin-right: auto;
+  
+      margin: 0;
+    position: relative;
+    left: 50%;
+    margin-right: -50%;
+  }
+</style>
+
+<!--   <div class="col-md-9 col-md-offset-2"> -->
+<main>
+<section id="main-content">
+    <section class="wrapper">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="blocktext">New Personnel</h1>
+          <div class="separator mb-5"></div>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-12 mb-4">
+          <div class="card">
+            <div class="card-body">
+
+    
+
+<%= simple_form_for(resources, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+
+        <%= f.error_notification %>
+
+ <div class="panel-body">
+     <div class="position-center">
+
+      <%= f.input :username, required: true,input_html:{ class:"form-control",style:"width:90%;float:center;"} %>
+
+      <%= f.input :full_name, required: true,input_html:{ class:"form-control",style:"width:90%;float:center;"} %>
+
+
+      <%= f.label :email, "Email" %>
+      <br/>
+      <%= f.text_field :email, class:"form-control",style:"width:90%;" %>
+
+      <%= f.input :password, required: true,input_html:{ class:"form-control",style:"width:90%;float:center;"}, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+
+
+      <%= f.input :password_confirmation, required: true,input_html:{ class:"form-control",style:"width:90%;float:center;"} %>
+
+
+      <%= f.association :a_role, collection: Role.all, label_method: :role_name, value_method: :id, include_blank: true, label: "Role:", style:"width:90%;", :input_html => {:class => 'form-control dropdown dropdown-toggle', style:"width:90%;float:center;"} %>
+
+       
+      <br/>
+      <br/>
+
+    
+            <%= f.input :status, :as=> :hidden, input_html: {value: "1"}, class:"form-control" %>
+    </div>
+
+    <center>
+
+    <%= f.submit "Submit", class: "btn btn-primary", style: "width:auto" %>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <%= link_to 'Back', users_path, class: "btn btn-danger", style: "width:auto" %>
+
+    </center>
+    <% end %>
+
+</div>
+
+   </div>
+</div>
+</div>
+</section>
+ </section>
+ </main>
+
+

@@ -1,0 +1,54 @@
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+
+<h1 style="text-align: center; font-size: 44px;">Results</h1>
+
+<table id="customers">
+  <tr>
+  <th>Student  Name </th>
+
+    <th>Assessment</th>
+    <th>Marks</th>
+    <th>Action</th>
+
+  </tr>
+  <% @assessments.each do |assessment| %>
+    <tr>
+    <td><%= assessment.first_name %></td>
+
+      <td><%= assessment.assessment_name %></td>
+
+      <td><%= assessment.marks %></td>
+      <td><%= link_to 'Edit', edit_assess_path(id: assessment.id, class_id: assessment.class_id), class: "btn btn-warning" %></td>
+
+    </tr>
+  <% end %>
+  
+  
+</table>
+
+
+
+

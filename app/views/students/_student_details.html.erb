@@ -1,0 +1,64 @@
+<style>
+  .content{
+  
+    white-space: normal !important;
+  }
+  
+  
+  
+  .overflow-wrap-hack{
+    max-width:1px;
+  }
+</style>
+<div class="row2">
+  <div class="col-md-12 col-md-offset-0">
+    <table class="custab table table-striped table-hover table-bordered">
+   
+<% if (defined?(@students)).nil? %>
+<% else  %>
+
+
+    <tr>
+    <td style="background-color:rgba(110, 129, 149, 0.96);color:#fbfbff">Full name</td>
+    <td style="background-color:rgba(251, 251, 255, 0.96);color:#000000"><%=   @students[0].first_name + " " + @students[0].last_name %></td>
+  </tr>
+  <tr>
+    <td style="background-color:rgba(110, 129, 149, 0.96);color:#fbfbff">
+Religion</td>
+    <td style="background-color:rgba(251, 251, 255, 0.96);color:#000000"><%=   @students[0].religion %></td>
+  </tr>
+  <tr>
+    <td style="background-color:rgba(110, 129, 149, 0.96);color:#fbfbff">Date of Birth</td>
+    <td style="background-color:rgba(251, 251, 255, 0.96);color:#000000"><%=   @students[0].date_of_birth %></td>
+  </tr>
+  <tr>
+    <td style="background-color:rgba(110, 129, 149, 0.96);color:#fbfbff">Gender</td>
+    <td style="background-color:rgba(251, 251, 255, 0.96);color:#000000"><%=   @students[0].gender %></td>
+  </tr>
+  <tr>
+    <td style="background-color:rgba(110, 129, 149, 0.96);color:#fbfbff">Class</td>
+    <td style="background-color:rgba(251, 251, 255, 0.96);color:#000000"><%=   @students[0].class_id %></td>
+  </tr>
+
+  <tr> 
+  <td style="background-color: #fff;color:#000"><h4 style="text-align: center"> PARENT DETAILS </h4></td> </tr>
+  <tr>
+    <td style="background-color:rgba(110, 129, 149, 0.96);color:#fbfbff">Parent Name</td>
+    <td style="background-color:rgba(251, 251, 255, 0.96);color:#000000"><%=   @students[0].parent_name %></td>
+  </tr>
+
+  <tr>
+    <td style="background-color:rgba(110, 129, 149, 0.96);color:#fbfbff">Parent Email</td>
+    <td style="background-color:rgba(251, 251, 255, 0.96);color:#000000;word-break: break-all;white-space: normal !important;"><%=   @students[0].email%></td>
+  </tr>
+  <td style="background-color:rgba(110, 129, 149, 0.96);color:#fbfbff">Parent Phone</td>
+  <td style="background-color:rgba(251, 251, 255, 0.96);color:#000000"><%=  @students[0].phone_number %></td>
+</tr>
+
+
+
+<% end %>
+</table>
+</div>
+</div>
+

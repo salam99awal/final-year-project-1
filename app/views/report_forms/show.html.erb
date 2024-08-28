@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+
+  <strong>Resident cost per day:</strong>
+
+  <%= @report_form.resident_cost_per_day %>
+
+</p>
+
+
+<p>
+
+  <strong>Resident no of days:</strong>
+
+  <%= @report_form.resident_no_of_days %>
+
+</p>
+
+
+<p>
+
+  <strong>Resident books:</strong>
+
+  <%= @report_form.resident_books %>
+
+</p>
+
+
+<p>
+
+  <strong>Nr cost per day:</strong>
+
+  <%= @report_form.nr_cost_per_day %>
+
+</p>
+
+
+<p>
+
+  <strong>Nr no of day:</strong>
+
+  <%= @report_form.nr_no_of_day %>
+
+</p>
+
+
+<%= link_to 'Edit', edit_report_form_path(@report_form) %> |
+
+<%= link_to 'Back', report_forms_path %>

@@ -1,0 +1,75 @@
+<div class="card">
+     <div class="card-header">
+         <strong class="card-title">Students</strong>
+        </div>
+     <div class="card-body">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+             <th scope="col">Student Name</th>
+            <!--   <th scope="col">Grade</th>  -->
+            <th scope="col">Fees Type</th>
+             <th scope="col">Total Fees</th>
+            <th scope="col">Amount Paid</th>
+            <th scope="col">Date Created</th>
+
+            <th scope="col"></th>
+
+
+         </tr>
+        </thead>
+    <tbody>
+
+     <% @collect_fees.each do | collect| %>
+      <tr scope="row">
+
+        <td ><%= collect.first_name %></td>
+        <!-- <td ><%#= collect.class_id %></td> -->
+        <td ><%= collect.name %></td>
+        <td ><%= collect.amount %></td>
+        <td ><%= collect.amount_received %></td>
+        <td ><%= collect.created_at.strftime("%B %d, %Y, %H:%M") %></td>
+        <!--   <td><%#= link_to 'Delete', collect, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+
+
+
+        
+      </tr>
+    <% end %>
+
+    
+    <tr>
+    <th scope="col">Fee</th>
+   <th scope="col">Amount</th>
+   <th scope="col">Paid</th>
+    <th scope="col">Amount Due</th>
+
+
+   <th scope="col"></th>
+
+
+</tr>
+    <% @total_collection.each do |key| %>
+
+        <tr scope="row">
+            <td ><%= key[0]%></td>
+            <td ><%= key[1]%></td>
+            <td ><%= key[2]%></td>
+            <td ><%= key[3]%></td>
+            <td ><%= key[4]%></td>
+
+            
+            
+        </tr>
+        <% end %>
+    
+        </tbody>
+    </table>
+    
+        </div>
+    </div>
+    </tbody>
+</table>
+
+    </div>
+</div>

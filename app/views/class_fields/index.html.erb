@@ -1,0 +1,74 @@
+
+<head>
+<style>
+#customers {
+  
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #b00;
+  color: white;
+}
+</style>
+</head>
+
+
+
+
+
+      <div class="content-wrapper">
+  <div class="row">
+
+    <div class="col-lg-12 d-flex grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-wrap justify-content-between">
+                      <h4 class="card-title mb-3"> Classes</h4>
+   
+                    </div>
+
+                    <div class="table-responsive">
+                      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @class_fields.each do |class_field| %>
+      <tr>
+        <td><%= class_field.name %></td>
+      
+        <td><%= link_to 'Edit', edit_class_field_path(class_field),class: "btn btn-outline-danger" %></td>
+        <!-- <td><%= link_to 'Destroy', class_field, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Class', new_class_field_path,class: "btn btn-outline-primary" %>
+
+    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>

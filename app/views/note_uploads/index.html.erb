@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Note Uploads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Lesson</th>
+      <th>Subject</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @note_uploads.each do |note_upload| %>
+      <tr>
+        <td><%= note_upload.user_id %></td>
+        <td><%= note_upload.lesson_id %></td>
+        <td><%= note_upload.subject_id %></td>
+        <td><%= link_to 'Show', note_upload %></td>
+        <td><%= link_to 'Edit', edit_note_upload_path(note_upload) %></td>
+        <td><%= link_to 'Destroy', note_upload, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Note Upload', new_note_upload_path %>
